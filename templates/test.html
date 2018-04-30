@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Beerlympics 2018</title>
+<style>
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: Arial;
+    font-size: 30px;
+}
+
+h4 {
+    color: white;
+    font-size: 18px;
+}
+
+a {
+    color: white;
+}
+
+#myVideo {
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    min-width: 100%;
+    min-height: 100%;
+}
+
+.content {
+    position: absolute;
+    left: 0;
+    top: 50%;
+    color: #f1f1f1;
+    width: 100%;
+    padding: 20px;
+}
+</style>
+
+<link rel="stylesheet" href="https://use.typekit.net/zss6pur.css">
+
+</head>
+<body>
+
+<video autoplay loop id="myVideo">
+  <source src="./../static/video/Final.mp4" type="video/mp4">
+  Your browser does not support HTML5 video.
+</video>
+
+<div class="content">
+  <Center>
+  <h1 class="Classic Comic">5/4/18</h1>
+  <h1 id="demo"></h1>
+  <h4><a href="https://drive.google.com/open?id=1Lg7DjqjPnAzlVYGJUIwI2hpY_oMNFAFh1IP76VJQlWY" target="_blank">Rules</a>  <a href="https://goo.gl/forms/IVTcURSQYuHh4Xcy1" target="_blank">Signup</a>  <a href="https://www.facebook.com/events/571819709867972/" target="_blank">FB Event</a></h4>
+</Center>
+</div>
+
+<script>
+var video = document.getElementById("myVideo");
+var btn = document.getElementById("myBtn");
+
+function myFunction() {
+  if (video.paused) {
+    video.play();
+    btn.innerHTML = "Pause";
+  } else {
+    video.pause();
+    btn.innerHTML = "Play";
+  }
+}
+
+// Set the date we're counting down to
+var countDownDate = new Date("May 4, 2018 22:00:00").getTime();
+
+// Update the count down every 1 second
+var x = setInterval(function() {
+
+  // Get todays date and time
+  var now = new Date().getTime();
+
+  // Find the distance between now an the count down date
+  var distance = countDownDate - now;
+
+  // Time calculations for days, hours, minutes and seconds
+  var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+  var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+  var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+  var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+  // Display the result in the element with id="demo"
+  document.getElementById("demo").innerHTML = days + "d " + hours + "h "
+  + minutes + "m " + seconds + "s ";
+
+  // If the count down is finished, write some text
+  if (distance < 0) {
+    clearInterval(x);
+    document.getElementById("demo").innerHTML = "EXPIRED";
+  }
+}, 1000);
+
+</script>
+
+</body>
+</html>
